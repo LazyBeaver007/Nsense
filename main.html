@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSense | The Intelligent Layer for Healthcare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f4f8; color: #1e293b; }
+        .hero-bg {
+            background-color: #0c1426;
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.1), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.1), transparent 30%);
+            position: relative;
+            overflow: hidden;
+        }
+        .glow-effect {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+        .nav-link.active { color: #3b82f6; }
+        .feature-card { transition: all 0.3s ease-in-out; }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        .stat-card:hover .stat-value { color: #3b82f6; }
+        .roadmap-line {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+            background-color: #e2e8f0;
+            border-radius: 2px;
+        }
+        .roadmap-dot {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .roadmap-dot.active {
+            background-color: #3b82f6;
+            transform: scale(1.5);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+        }
+        .fade-in { opacity: 0; transition: opacity 1s ease-in-out; }
+        .fade-in.visible { opacity: 1; }
+        .slide-up { transform: translateY(30px); opacity: 0; transition: all 0.8s ease-out; }
+        .slide-up.visible { transform: translateY(0); opacity: 1; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-extrabold text-xl text-blue-600 tracking-tight">NSense</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <a href="#vision" class="nav-link px-1 py-2 text-sm font-medium text-slate-600 hover:text-blue-600">Vision</a>
+                        <a href="#solutions" class="nav-link px-1 py-2 text-sm font-medium text-slate-600 hover:text-blue-600">Solutions</a>
+                        <a href="#platform" class="nav-link px-1 py-2 text-sm font-medium text-slate-600 hover:text-blue-600">Platform</a>
+                        <a href="#roadmap" class="nav-link px-1 py-2 text-sm font-medium text-slate-600 hover:text-blue-600">Roadmap</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                     <a href="#contact" class="px-5 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow-lg transition-shadow">Request Demo</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="vision" class="hero-bg text-white py-32 md:py-40">
+            <div class="glow-effect" style="width: 500px; height: 500px; background: #3b82f6; top: -150px; left: -200px;"></div>
+            <div class="glow-effect" style="width: 400px; height: 400px; background: #8b5cf6; bottom: -150px; right: -150px;"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight slide-up">
+                    The Intelligent Layer for Modern Healthcare
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-300 slide-up" style="transition-delay: 100ms;">
+                    NSense is not just software. It's the central nervous system for your hospital. We automate the routine so your teams can achieve the extraordinary.
+                </p>
+                <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center slide-up" style="transition-delay: 200ms;">
+                    <a href="#solutions" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-slate-900 bg-white hover:bg-slate-200 transition-colors">Explore Solutions</a>
+                    <a href="#platform" class="px-8 py-3 border border-blue-400 text-base font-medium rounded-md text-white bg-white/10 hover:bg-white/20 transition-colors">See the Platform</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-sm font-semibold text-blue-600 tracking-wide uppercase">The ROI of Intelligence</h2>
+                    <p class="mt-2 text-3xl font-extrabold text-slate-900 tracking-tight">Unlock Tangible Value from Day One</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="stat-card bg-white p-8 rounded-xl shadow-sm transition-shadow hover:shadow-xl slide-up">
+                        <p class="stat-value text-5xl font-extrabold text-slate-900 transition-colors" data-target="25">0</p>
+                        <p class="mt-2 text-lg font-medium text-slate-500">Reduction in Supply Waste</p>
+                    </div>
+                    <div class="stat-card bg-white p-8 rounded-xl shadow-sm transition-shadow hover:shadow-xl slide-up" style="transition-delay: 150ms;">
+                        <p class="stat-value text-5xl font-extrabold text-slate-900 transition-colors" data-target="30">0</p>
+                        <p class="mt-2 text-lg font-medium text-slate-500">Decrease in Patient Wait Times</p>
+                    </div>
+                    <div class="stat-card bg-white p-8 rounded-xl shadow-sm transition-shadow hover:shadow-xl slide-up" style="transition-delay: 300ms;">
+                        <p class="stat-value text-5xl font-extrabold text-slate-900 transition-colors" data-target="40">0</p>
+                        <p class="mt-2 text-lg font-medium text-slate-500">More Time for Direct Patient Care</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:text-center">
+                    <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Foundational Modules</h2>
+                    <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                        Solve Today's Problems. Build for Tomorrow.
+                    </p>
+                    <p class="mt-4 max-w-2xl text-xl text-slate-500 lg:mx-auto">
+                        Our initial suite targets the most critical operational bottlenecks, delivering immediate improvements in efficiency, cost, and care quality.
+                    </p>
+                </div>
+
+                <div class="mt-16 space-y-20">
+                    <div class="flex flex-col md:flex-row items-center gap-12 slide-up">
+                        <div class="md:w-1/2">
+                            <span class="text-4xl">📦</span>
+                            <h3 class="mt-2 text-2xl font-bold text-slate-900">Intelligent Inventory</h3>
+                            <p class="mt-4 text-slate-600">Go beyond simple stock counts. Our system uses predictive analytics to forecast demand, automate reordering, and eliminate costly waste and stockouts. Ensure your clinicians always have what they need, when they need it.</p>
+                             <ul class="mt-6 space-y-2 text-slate-600">
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>Predictive Demand:</strong> Forecast supply needs based on patient load.</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>Automated Ordering:</strong> Integrate with suppliers to prevent shortages.</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>Asset Tracking:</strong> Monitor high-value equipment in real-time.</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/2 w-full bg-white p-4 rounded-lg shadow-md"><canvas id="inventoryChart"></canvas></div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-12 slide-up">
+                         <div class="md:w-1/2">
+                            <span class="text-4xl">👥</span>
+                            <h3 class="mt-2 text-2xl font-bold text-slate-900">Dynamic Staffing</h3>
+                            <p class="mt-4 text-slate-600">Align your most valuable resource—your people—with real-time patient demand. Our AI-powered scheduler optimizes shifts, reduces overtime, and helps prevent staff burnout by ensuring fair and balanced workloads.</p>
+                            <ul class="mt-6 space-y-2 text-slate-600">
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>Acuity-Based Scheduling:</strong> Match staff skills to patient needs.</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>Predictive Allocation:</strong> Proactively staff for predicted surges.</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>Compliance Engine:</strong> Automatically adhere to labor rules and regulations.</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/2 w-full bg-white p-4 rounded-lg shadow-md"><canvas id="staffingChart"></canvas></div>
+                    </div>
+                    
+                     <div class="flex flex-col md:flex-row items-center gap-12 slide-up">
+                        <div class="md:w-1/2">
+                            <span class="text-4xl">⏱️</span>
+                            <h3 class="mt-2 text-2xl font-bold text-slate-900">Patient Flow & Triage</h3>
+                            <p class="mt-4 text-slate-600">Orchestrate the entire patient journey from door to discharge. Our AI assistant helps prioritize patients at intake, manages queues intelligently, and optimizes bed allocation to dramatically reduce wait times and improve throughput.</p>
+                             <ul class="mt-6 space-y-2 text-slate-600">
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>AI-Assisted Triage:</strong> Standardize and accelerate acuity scoring.</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>Smart Queuing:</strong> Provide patients with accurate wait time predictions.</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> <strong>Predictive Discharge:</strong> Forecast bed availability hours in advance.</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/2 w-full bg-white p-4 rounded-lg shadow-md"><canvas id="triageChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="platform" class="py-20 bg-slate-800 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">One Platform. Total Control.</h2>
+                    <p class="mt-4 max-w-2xl text-xl text-slate-300 mx-auto">NSense is built on a foundation of security, interoperability, and choice. You decide how to deploy and control your data.</p>
+                </div>
+                <div class="mt-16 bg-slate-900/50 rounded-2xl p-8 md:p-12 border border-slate-700">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="feature-card p-6 border border-slate-700 rounded-lg bg-slate-800 slide-up">
+                           <div class="text-4xl">🛡️</div>
+                           <h3 class="mt-4 text-xl font-bold">Ironclad Security</h3>
+                           <p class="mt-2 text-slate-400">Deploy on-premise for total data sovereignty or in our secure, HIPAA-compliant cloud. Your data is always protected.</p>
+                        </div>
+                        <div class="feature-card p-6 border border-slate-700 rounded-lg bg-slate-800 slide-up" style="transition-delay: 150ms;">
+                            <div class="text-4xl">🔗</div>
+                           <h3 class="mt-4 text-xl font-bold">Radical Interoperability</h3>
+                           <p class="mt-2 text-slate-400">Built on a FHIR-native core, NSense seamlessly integrates with your existing EHR and other systems, breaking down data silos.</p>
+                        </div>
+                        <div class="feature-card p-6 border border-slate-700 rounded-lg bg-slate-800 slide-up" style="transition-delay: 300ms;">
+                           <div class="text-4xl">📈</div>
+                           <h3 class="mt-4 text-xl font-bold">Modular & Scalable</h3>
+                           <p class="mt-2 text-slate-400">Start with the modules you need today and expand as your needs grow. Our platform scales with you on your automation journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center">
+                    <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">The Future of Augmented Healthcare</h2>
+                    <p class="mt-4 max-w-2xl text-xl text-slate-500 mx-auto">Our "Land and Expand" strategy is a clear path from operational efficiency to full clinical augmentation.</p>
+                </div>
+                <div class="mt-20 flex flex-col md:flex-row gap-8 md:gap-16">
+                    <div class="md:w-1/3 relative">
+                        <div class="roadmap-line"></div>
+                        <div id="roadmap-nav" class="relative">
+                            <!-- JS will populate this -->
+                        </div>
+                    </div>
+                    <div id="roadmap-content" class="md:w-2/3">
+                        <!-- JS will populate this -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="bg-white">
+            <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
+                    <span class="block">Ready to build your intelligent hospital?</span>
+                    <span class="block text-blue-600">Let's start the conversation.</span>
+                </h2>
+                <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                            Request a Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-bold text-white text-lg">NSense</p>
+            <p class="mt-2 text-sm">Empowering the future of healthcare. &copy; 2025 NSense Inc. All rights reserved.</p>
+        </div>
+    </footer>
+    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const appData = {
+        charts: [
+            { id: 'inventoryChart', type: 'doughnut', label: 'Supply Waste', data: [82, 18], targets: [96, 4], labels: ['Optimized', 'Waste'] },
+            { id: 'staffingChart', type: 'bar', label: 'Overtime Costs', data: [75, 25], targets: [90, 10], labels: ['Standard Hours', 'Overtime'] },
+            { id: 'triageChart', type: 'line', label: 'Patient Throughput', data: [10, 15, 12, 18, 25, 30], targets: [20, 28, 25, 35, 45, 55], labels: ['8am', '10am', '12pm', '2pm', '4pm', '6pm'] }
+        ],
+        roadmap: [
+            {
+                phase: 'Phase 1',
+                title: 'Foundational Operations',
+                description: 'Deploy high-ROI modules to solve immediate operational pain points like waste, staff allocation, and patient wait times. This phase builds trust and a structured data foundation.',
+                modules: ['Intelligent Inventory', 'Dynamic Staff Scheduler', 'AI Triage & Queuing']
+            },
+            {
+                phase: 'Phase 2',
+                title: 'Clinical Augmentation',
+                description: 'Leverage the data from Phase 1 to deploy "human-in-the-loop" clinical decision support tools, enhancing caregiver capabilities without replacing their judgment.',
+                modules: ['Predictive Analytics (e.g., Sepsis Risk)', 'Medication Management AI', 'AI-Assisted Documentation']
+            },
+            {
+                phase: 'Phase 3',
+                title: 'Ecosystem Automation',
+                description: 'Integrate modules into a cohesive, semi-autonomous system. Deploy advanced robotics and create a "digital twin" of the hospital for deep operational simulation and optimization.',
+                modules: ['Logistical Robotics', 'Advanced Diagnostics AI', 'Automated Care Pathways']
+            }
+        ]
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.slide-up, .fade-in').forEach(el => observer.observe(el));
+    
+    const countUp = (el) => {
+        const target = +el.dataset.target;
+        anime({
+            targets: el,
+            innerText: [0, target],
+            round: 1,
+            easing: 'easeOutExpo',
+            duration: 2000,
+            delay: 500
+        });
+    }
+
+    const statObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                countUp(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.stat-value').forEach(el => statObserver.observe(el));
+
+    const setupCharts = () => {
+        appData.charts.forEach(chartConfig => {
+            const ctx = document.getElementById(chartConfig.id)?.getContext('2d');
+            if (!ctx) return;
+            
+            let chartData;
+            if (chartConfig.type === 'doughnut') {
+                chartData = {
+                    labels: chartConfig.labels,
+                    datasets: [{
+                        data: chartConfig.data,
+                        backgroundColor: ['#e2e8f0', '#3b82f6'],
+                        borderColor: '#ffffff',
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                };
+            } else if (chartConfig.type === 'bar') {
+                 chartData = {
+                    labels: chartConfig.labels,
+                    datasets: [{
+                        label: 'Before NSense',
+                        data: chartConfig.data,
+                        backgroundColor: '#94a3b8',
+                        borderRadius: 4
+                    }, {
+                        label: 'With NSense',
+                        data: chartConfig.targets,
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 4
+                    }]
+                };
+            } else { // line
+                chartData = {
+                    labels: chartConfig.labels,
+                    datasets: [{
+                        label: 'Before NSense',
+                        data: chartConfig.data,
+                        borderColor: '#94a3b8',
+                        tension: 0.4,
+                        fill: false
+                    }, {
+                        label: 'With NSense',
+                        data: chartConfig.targets,
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                };
+            }
+            
+            new Chart(ctx, {
+                type: chartConfig.type,
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: chartConfig.type === 'doughnut' ? 'bottom' : 'top', labels: { color: '#475569' } },
+                        tooltip: {
+                            backgroundColor: '#1e293b',
+                            titleColor: '#f1f5f9',
+                            bodyColor: '#cbd5e1'
+                        }
+                    },
+                    scales: chartConfig.type !== 'doughnut' ? {
+                        y: { beginAtZero: true, grid: { color: '#e2e8f0' }, ticks: { color: '#64748b' } },
+                        x: { grid: { display: false }, ticks: { color: '#64748b' } }
+                    } : {}
+                }
+            });
+        });
+    };
+
+    const setupRoadmap = () => {
+        const navContainer = document.getElementById('roadmap-nav');
+        const contentContainer = document.getElementById('roadmap-content');
+        if (!navContainer || !contentContainer) return;
+
+        let navHTML = '';
+        appData.roadmap.forEach((item, index) => {
+            navHTML += `
+                <div style="padding-top: ${index * 80}px;">
+                    <div data-index="${index}" class="roadmap-dot w-5 h-5 rounded-full bg-slate-300 border-4 border-white shadow-sm ${index === 0 ? 'active' : ''}"></div>
+                </div>
+            `;
+        });
+        navContainer.innerHTML = navHTML;
+
+        const updateContent = (index) => {
+            const item = appData.roadmap[index];
+            contentContainer.innerHTML = `
+                <div class="fade-in">
+                    <p class="text-sm font-semibold text-blue-600 tracking-wide uppercase">${item.phase}</p>
+                    <h3 class="mt-2 text-3xl font-bold text-slate-900">${item.title}</h3>
+                    <p class="mt-4 text-lg text-slate-600">${item.description}</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        ${item.modules.map(m => `<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">${m}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            setTimeout(() => contentContainer.querySelector('.fade-in').classList.add('visible'), 50);
+        };
+        
+        navContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('roadmap-dot')) {
+                const index = e.target.dataset.index;
+                navContainer.querySelectorAll('.roadmap-dot').forEach(dot => dot.classList.remove('active'));
+                e.target.classList.add('active');
+                updateContent(index);
+            }
+        });
+
+        updateContent(0);
+    };
+    
+    const setupNavigationHighlight = () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('header .nav-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        const linkHref = link.getAttribute('href');
+                        if (linkHref && `#${entry.target.id}` === linkHref) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        sections.forEach(section => {
+            if(section.id) observer.observe(section);
+        });
+    };
+
+
+    setupCharts();
+    setupRoadmap();
+    setupNavigationHighlight();
+});
+</script>
+
+</body>
+</html>
